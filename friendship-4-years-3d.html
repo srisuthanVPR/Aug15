@@ -185,6 +185,10 @@
 </head>
 <body>
 
+    <audio id="bgMusic" loop preload="auto">
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
 <div id="stars"></div>
 
 <!-- ============================================================
@@ -261,7 +265,7 @@
   <div class="letter" id="letterBox">
     <div class="kicker">A Note For You</div>
     <p>
-        4 years of friendship, countless memories, and a bond that only grows stronger with time. From our first meeting we've shared, every moment has been a treasure. Here's to the laughter, the support, and the endless conversations that have made our friendship truly special. Thank you for being an incredible friend 🐥 and for making these years unforgettable. Love you more....🤌! Still now remebered that how we started our journey how we started to talk and lot of things truely thanks for everything........ we may fight a lot but at the End Of the Day ur mine.....Sry for everything i have done........
+        4 years of friendship, countless memories, and a bond that only grows stronger with time. From our first meeting we've shared, every moment has been a treasure. Here's to the laughter, the support, and the endless conversations that have made our friendship truly special. Thank you for being an incredible friend 🐥 and for making these years unforgettable. Love you more....🤌! Still now remebered that how we started our journey how we started to talk and lot of things truely thanks for everything........ we may fight a lot but at the End Of the Day ur mine.....Sry for everything i have done........The one and only voice i need to hear for my life time.... Always ready to hear the voice🫂
     </p>
     <div class="sign">— By your SRI</div>
   </div>
@@ -406,6 +410,21 @@
     if(current >= target){ current = target; clearInterval(tick); }
     counterEl.textContent = current.toLocaleString();
   }, 20);
+  // Background music
+const bgMusic = document.getElementById("bgMusic");
+
+bgMusic.volume = 0.35;
+
+function startMusic() {
+  bgMusic.play().catch(() => {});
+}
+
+// Try autoplay
+startMusic();
+
+// If the browser blocks autoplay, start after the first user interaction
+document.addEventListener("click", startMusic, { once: true });
+document.addEventListener("touchstart", startMusic, { once: true });
 </script>
 
 </body>
